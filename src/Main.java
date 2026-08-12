@@ -14,7 +14,9 @@ public class Main {
             System.out.println("1. Add Book");
             System.out.println("2. View Books");
             System.out.println("3. Search Book");
-            System.out.println("4. Exit");
+            System.out.println("4. Issue Book");
+            System.out.println("5. Return Book");
+            System.out.println("6. Exit");
             System.out.print("Enter your choice: ");
 
             int choice = sc.nextInt();
@@ -67,14 +69,49 @@ public class Main {
                 if(!found) {
                     SYstem.out.println("Book not found.");
                 }
-            } else if (choice == 4) {
-                System.out.println("Thank you for using Library Management System!");
-                break;
-            } else {
-                System.out.println("Invalid choice!");
-            }
-        }
+           } else if (choice == 4) {
 
+    System.out.print("Enter Book ID to issue: ");
+    int issueId = sc.nextInt();
+
+    boolean found = false;
+
+    for (Book book : books) {
+        if (book.bookId == issueId) {
+            book.issueBook();
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        System.out.println("Book not found.");
+    }
+
+} else if (choice == 5) {
+
+    System.out.print("Enter Book ID to return: ");
+    int returnId = sc.nextInt();
+
+    boolean found = false;
+
+    for (Book book : books) {
+        if (book.bookId == returnId) {
+            book.returnBook();
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        System.out.println("Book not found.");
+    }
+
+} else if (choice == 6) {
+
+    System.out.println("Thank you for using the Library Management System!");
+    break;
+                
         sc.close();
     }
 }
