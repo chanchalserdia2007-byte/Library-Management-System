@@ -13,7 +13,8 @@ public class Main {
             System.out.println("\n===== LIBRARY MANAGEMENT SYSTEM =====");
             System.out.println("1. Add Book");
             System.out.println("2. View Books");
-            System.out.println("3. Exit");
+            System.out.println("3. Search Book");
+            System.out.println("4. Exit");
             System.out.print("Enter your choice: ");
 
             int choice = sc.nextInt();
@@ -51,9 +52,24 @@ public class Main {
 
             } else if (choice == 3) {
 
-                System.out.println("Thank you for using the Library Management System!");
-                break;
+                System.out.println("Enter Book ID to search: ");
+                int searchId = sc.nextInt();
 
+                boolean found = false;
+
+                for (Book book : books) {
+                    if (book.bookId == searchId) {
+                        book.displayBook():
+                            found = true;
+                            break;
+                    }
+                }
+                if(!found) {
+                    SYstem.out.println("Book not found.");
+                }
+            } else if (choice == 4) {
+                System.out.println("Thank you for using Library Management System!");
+                break;
             } else {
                 System.out.println("Invalid choice!");
             }
