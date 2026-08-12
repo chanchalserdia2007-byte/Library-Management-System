@@ -16,6 +16,29 @@ public class Book {
         System.out.println("Book ID: " + bookId);
         System.out.println("Title: " + title);
         System.out.println("Author: " + author);
-        System.out.println("Available: " + available);
+
+        if (available) {
+            System.out.println("Status: Available");
+        } else {
+            System.out.println("Status: Issued");
+        }
+    }
+
+    public void issueBook() {
+        if (available) {
+            available = false;
+            System.out.println("Book issued successfully! ✅");
+        } else {
+            System.out.println("Book is already issued.");
+        }
+    }
+
+    public void returnBook() {
+        if (!available) {
+            available = true;
+            System.out.println("Book returned successfully! ✅");
+        } else {
+            System.out.println("This book was not issued.");
+        }
     }
 }
