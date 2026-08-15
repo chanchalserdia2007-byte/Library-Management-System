@@ -37,7 +37,7 @@ public class Main {
                 Book book = new Book(id, title, author);
                 books.add(book);
 
-                System.out.println("Book added successfully! ✅");
+                System.out.println("Book added successfully!");
 
             } else if (choice == 2) {
 
@@ -48,39 +48,41 @@ public class Main {
 
                     for (Book book : books) {
                         book.displayBook();
-                        System.out.println("---------------------");
+                        System.out.println("--------------------");
                     }
                 }
 
             } else if (choice == 3) {
 
-                System.out.println("Enter Book ID to search: ");
+                System.out.print("Enter Book ID to search: ");
                 int searchId = sc.nextInt();
 
                 boolean found = false;
 
                 for (Book book : books) {
-                    if (book.bookId == searchId) {
-                        book.displayBook():
-                            found = true;
-                            break;
+                    if (book.getBookId() == searchId) {
+                        book.displayBook();
+                        found = true;
+                        break;
                     }
                 }
-                if(!found) {
-                    SYstem.out.println("Book not found.");
+
+                if (!found) {
+                    System.out.println("Book not found.");
                 }
-           } else if (choice == 4) {
 
-    System.out.print("Enter Book ID to issue: ");
-    int issueId = sc.nextInt();
+            } else if (choice == 4) {
 
-    boolean found = false;
+                System.out.print("Enter Book ID to issue: ");
+                int issueId = sc.nextInt();
 
-    for (Book book : books) {
-        if (book.bookId == issueId) {
-            book.issueBook();
-            found = true;
-            break;
+                 boolean found = false;
+
+                 for (Book book : books) {
+                     if (book.getBookId() == issueId) {
+                     book.issueBook();
+                     found = true;
+                     break;
         }
     }
 
@@ -96,7 +98,7 @@ public class Main {
     boolean found = false;
 
     for (Book book : books) {
-        if (book.bookId == returnId) {
+        if (book.getBookId() == returnId) {
             book.returnBook();
             found = true;
             break;
@@ -109,9 +111,15 @@ public class Main {
 
 } else if (choice == 6) {
 
-    System.out.println("Thank you for using the Library Management System!");
+    System.out.println("Thank you for using Library Management System!");
     break;
-                
+
+            } else {
+
+                System.out.println("Invalid choice!");
+            }
+        }
+
         sc.close();
     }
 }
