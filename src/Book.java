@@ -12,6 +12,10 @@ public class Book {
         this.available = true;
     }
 
+    public int getBookId() {
+        return bookId;
+    }
+
     public void displayBook() {
         System.out.println("Book ID: " + bookId);
         System.out.println("Title: " + title);
@@ -27,7 +31,7 @@ public class Book {
     public void issueBook() {
         if (available) {
             available = false;
-            System.out.println("Book issued successfully! ✅");
+            System.out.println("Book issued successfully!");
         } else {
             System.out.println("Book is already issued.");
         }
@@ -36,9 +40,9 @@ public class Book {
     public void returnBook() {
         if (!available) {
             available = true;
-            System.out.println("Book returned successfully! ✅");
+            System.out.println("Book returned successfully!");
         } else {
-            System.out.println("This book was not issued.");
+            System.out.println("This book is already available.");
         }
     }
 }
